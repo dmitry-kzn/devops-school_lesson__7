@@ -9,7 +9,7 @@ services:
       - "8080:80"
     volumes: # map volume from host to container
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
-     volumes_from: #map all volumes from specified service to current service
+    volumes_from: #map all volumes from specified service to current service
       - php
 
   php:
