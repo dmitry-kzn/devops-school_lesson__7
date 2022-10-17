@@ -4,14 +4,14 @@ services:
     maven:
       build: .
       volumes:
-        - mavendata:/usr/local/tomcat/webapps/ # to this dir shared drive will be mounted !!
+        - mavenshare:/usr/local/tomcat/webapps/ # to this dir shared drive will be mounted !!
     tomcat:                                    # dir should be existed!! it mounts at the beginning !
       image: tomcat:9.0.8-jre8-alpine          # WORKDIR command can also create this directory even if it doesnt exist
       ports:
         - "8080:8080"
       volumes:
-        - mavendata:/usr/local/tomcat/webapps/
+        - mavenshare:/usr/local/tomcat/webapps/
       stdin_open: true # docker run -i 
       tty: true        # docker run -t - to do not Exited for Container after finishing main command
 volumes:
-  mavendata:
+  mavenshare:
